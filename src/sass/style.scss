@@ -1,0 +1,8 @@
+/* Punto de entrada de estilos.
+   El orden importa: tokens -> base -> piezas reutilizables -> vistas. */
+
+@use "partials/tokens";
+@use "partials/base";
+@use "partials/ui";
+@use "partials/layout";
+@use "partials/pages";

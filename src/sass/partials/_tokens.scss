@@ -1,0 +1,55 @@
+/* =========================================================
+   Tokens de diseño: un solo lugar para colores, tipografía,
+   espaciado y sombras. Nada de hex sueltos en los componentes.
+   ========================================================= */
+
+:root {
+  /* Marca */
+  --brand: #e53935;
+  --brand-strong: #b3261e;   /* texto sobre blanco: contraste AA */
+  --brand-soft: #fdecea;
+  --accent: #f2a413;         /* estrellas, destacados */
+
+  /* Neutros */
+  --ink: #17161a;
+  --ink-soft: #5c5b66;
+  --line: #e8e3e0;
+  --surface: #ffffff;
+  --surface-alt: #f7f3f1;
+  --page: #fdfbfa;
+
+  /* Estados */
+  --success: #1e7a4c;
+  --danger: #c02a24;
+
+  /* Espaciado (escala de 4 px) */
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-5: 1.5rem;
+  --space-6: 2rem;
+  --space-7: 3rem;
+  --space-8: 4rem;
+
+  /* Formas y profundidad */
+  --radius-sm: 8px;
+  --radius: 14px;
+  --radius-lg: 22px;
+  --shadow-sm: 0 1px 2px rgb(23 22 26 / 6%);
+  --shadow: 0 10px 30px -12px rgb(23 22 26 / 18%);
+
+  /* Tipografía */
+  --font: "Poppins", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --text-sm: 0.875rem;
+  --text-base: 1rem;
+  --text-lg: 1.125rem;
+  --text-xl: clamp(1.25rem, 1rem + 1vw, 1.5rem);
+  --text-2xl: clamp(1.5rem, 1.1rem + 1.8vw, 2.125rem);
+  --text-3xl: clamp(2rem, 1.3rem + 3.2vw, 3.5rem);
+
+  /* Layout */
+  --max-width: 1200px;
+  --header-height: 76px;
+  --transition: 180ms ease;
+}

@@ -1,0 +1,219 @@
+/* Botones, campos de formulario y piezas reutilizables */
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+  padding: var(--space-3) var(--space-5);
+  border: 1px solid transparent;
+  border-radius: 999px;
+  background: none;
+  font-weight: 600;
+  font-size: var(--text-sm);
+  text-decoration: none;
+  cursor: pointer;
+  transition: background-color var(--transition), color var(--transition),
+    border-color var(--transition);
+
+  &--primary {
+    background-color: var(--brand);
+    color: #fff;
+
+    &:hover { background-color: var(--brand-strong); }
+  }
+
+  &--ghost {
+    border-color: var(--line);
+    background-color: var(--surface);
+    color: var(--ink);
+
+    &:hover { border-color: var(--ink); }
+  }
+
+  &--text {
+    padding-inline: 0;
+    color: var(--ink-soft);
+    text-decoration: underline;
+
+    &:hover { color: var(--danger); }
+  }
+
+  &--lg {
+    padding: var(--space-3) var(--space-6);
+    font-size: var(--text-base);
+  }
+
+  &--block { width: 100%; }
+}
+
+.icon-btn {
+  display: grid;
+  place-items: center;
+  width: 38px;
+  height: 38px;
+  border: 1px solid var(--line);
+  border-radius: 50%;
+  background: var(--surface);
+  color: var(--ink-soft);
+  cursor: pointer;
+  transition: color var(--transition), border-color var(--transition);
+
+  &:hover {
+    color: var(--danger);
+    border-color: var(--danger);
+  }
+}
+
+.back-link {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  margin-bottom: var(--space-5);
+  color: var(--ink-soft);
+  font-weight: 600;
+  font-size: var(--text-sm);
+  text-decoration: none;
+
+  &:hover { color: var(--brand-strong); }
+}
+
+/* --- Formularios --- */
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  margin-bottom: var(--space-4);
+
+  label { font-size: var(--text-sm); font-weight: 600; }
+
+  input,
+  select,
+  textarea {
+    padding: var(--space-3);
+    border: 1px solid var(--line);
+    border-radius: var(--radius-sm);
+    background: var(--surface);
+    transition: border-color var(--transition);
+
+    &:hover { border-color: var(--ink-soft); }
+    &.is-invalid { border-color: var(--danger); }
+  }
+
+  textarea { resize: vertical; }
+}
+
+.field--check label {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-2);
+  font-weight: 400;
+
+  input { width: 1.1rem; height: 1.1rem; margin-top: 0.2rem; }
+}
+
+.field__error {
+  color: var(--danger);
+  font-size: var(--text-sm);
+}
+
+.field-row {
+  display: grid;
+  gap: var(--space-4);
+
+  @media (width >= 640px) { grid-template-columns: 1fr 1fr; }
+}
+
+/* --- Avisos --- */
+
+.notice {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+  align-items: center;
+  padding: var(--space-4);
+  border-radius: var(--radius);
+  margin-bottom: var(--space-5);
+  font-size: var(--text-sm);
+
+  &--error {
+    background: var(--brand-soft);
+    color: var(--danger);
+  }
+
+  &--success {
+    background: #e6f4ec;
+    color: var(--success);
+  }
+}
+
+.notice__actions { display: flex; gap: var(--space-3); }
+
+.empty-state {
+  display: grid;
+  justify-items: center;
+  gap: var(--space-3);
+  padding: var(--space-8) var(--space-5);
+  border: 1px dashed var(--line);
+  border-radius: var(--radius-lg);
+  text-align: center;
+  color: var(--ink-soft);
+
+  h2 { color: var(--ink); }
+  p { max-width: 46ch; }
+}
+
+/* --- Selector de cantidad --- */
+
+.stepper {
+  display: inline-flex;
+  align-items: center;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: var(--surface);
+
+  button {
+    display: grid;
+    place-items: center;
+    width: 36px;
+    height: 36px;
+    border: 0;
+    border-radius: 50%;
+    background: none;
+    cursor: pointer;
+
+    &:disabled { opacity: 0.35; cursor: not-allowed; }
+  }
+
+  span {
+    min-width: 2ch;
+    text-align: center;
+    font-weight: 600;
+    font-variant-numeric: tabular-nums;
+  }
+}
+
+/* --- Esqueletos de carga --- */
+
+.skeleton {
+  border-radius: var(--radius-sm);
+  background: linear-gradient(90deg, #eee9e6 25%, #f6f2f0 50%, #eee9e6 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.4s infinite linear;
+}
+
+.skeleton--media { aspect-ratio: 1; border-radius: 0; }
+.skeleton--detail { aspect-ratio: 1; border-radius: var(--radius-lg); }
+
+.skeleton--line {
+  height: 0.9rem;
+  margin-bottom: var(--space-3);
+}
+
+.skeleton--sm { width: 40%; }
+.skeleton--md { width: 70%; }
+
+@keyframes shimmer {
+  to { background-position: -200% 0; }
+}

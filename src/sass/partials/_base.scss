@@ -1,0 +1,123 @@
+/* Reset ligero y estilos de documento */
+
+*,
+*::before,
+*::after { box-sizing: border-box; }
+
+* { margin: 0; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  background-color: var(--page);
+  color: var(--ink);
+  font-family: var(--font);
+  font-size: var(--text-base);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+img,
+svg { display: block; max-width: 100%; }
+
+img { height: auto; }
+
+input,
+select,
+textarea,
+button { font: inherit; color: inherit; }
+
+h1, h2, h3, h4 {
+  line-height: 1.15;
+  text-wrap: balance;
+  font-weight: 700;
+}
+
+h1 { font-size: var(--text-2xl); }
+h2 { font-size: var(--text-xl); }
+
+p { text-wrap: pretty; }
+
+a {
+  color: var(--brand-strong);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+}
+
+/* Foco visible y consistente en todo el sitio */
+:where(a, button, input, select, textarea):focus-visible {
+  outline: 3px solid var(--brand);
+  outline-offset: 2px;
+  border-radius: var(--radius-sm);
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+.skip-link {
+  position: absolute;
+  left: var(--space-4);
+  top: -100px;
+  z-index: 100;
+  padding: var(--space-2) var(--space-4);
+  background: var(--surface);
+  border-radius: var(--radius-sm);
+  font-weight: 600;
+  transition: top var(--transition);
+
+  &:focus { top: var(--space-2); }
+}
+
+.app-shell {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.app-main { flex: 1; }
+
+.section {
+  width: min(100% - var(--space-5) * 2, var(--max-width));
+  margin-inline: auto;
+  padding-block: var(--space-7);
+}
+
+.section--narrow { max-width: 760px; }
+
+.section__head {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+  align-items: baseline;
+  justify-content: space-between;
+  margin-bottom: var(--space-5);
+}
+
+.section__subtitle {
+  color: var(--ink-soft);
+  font-size: var(--text-sm);
+}
+
+.link-more {
+  font-weight: 600;
+  font-size: var(--text-sm);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
